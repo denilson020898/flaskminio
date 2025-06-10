@@ -1,7 +1,8 @@
-FROM python:3.8 
+# flaskapp.dockerfile
+FROM python:3.8-slim
 WORKDIR /app
 COPY . .
 RUN pip install Flask
 EXPOSE 5000
 ENV FLASK_ENV=development
-CMD ["python", "main.py"]
+CMD ["python", "/app/main.py"]
