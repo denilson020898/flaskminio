@@ -1,8 +1,3 @@
-# flaskapp.dockerfile
-FROM python:3.8-slim
-WORKDIR /app
-COPY . .
-RUN pip install Flask
-EXPOSE 5000
-ENV FLASK_ENV=development
-CMD ["python", "/app/main.py"]
+FROM apache/airflow:3.0.2
+COPY requirements.txt /
+RUN pip install --no-cache-dir -r /requirements.txt
